@@ -1,0 +1,39 @@
+{
+  "version": "1.0.0",
+  "name": "asp.net",
+  "private": true,
+  "devDependencies": {
+    "gulp": "3.9.1",
+    "gulp-bower": "0.0.13",
+    "gulp-concat": "^2.6.1",
+    "gulp-config": "0.3.0",
+    "gulp-download-files": "0.0.1",
+    "gulp-plumber": "1.0.0",
+    "gulp-rename": "1.2.2",
+    "gulp-sass": "3.1.0",
+    "gulp-sourcemaps": "2.4.1",
+    "gulp-systemjs-builder": "^0.15.0",
+    "gulp-tslint": "7.1.0",
+    "tslint": "^4.4.2"
+  },
+  "dependencies": {
+    "@angular/animations": "^4.0.2",
+    "@angular/common": "^4.0.2",
+    "@angular/compiler": "^4.0.2",
+    "@angular/core": "^4.0.2",
+    "@angular/forms": "^4.0.2",
+    "@angular/http": "^4.0.2",
+    "@angular/material": "^2.0.0-beta.3",
+    "@angular/platform-browser": "^4.0.2",
+    "@angular/platform-browser-dynamic": "^4.0.2",
+    "@angular/platform-server": "^4.0.2",
+    "@angular/router": "^4.0.2",
+    "angular-in-memory-web-api": "~0.2.4",
+    "bootstrap": "^3.3.7",
+    "ng2-validation": "^4.1.0",
+    "rxjs": "^5.3.0",
+    "systemjs": "^0.20.12",
+    "typescript": "^2.2.2",
+    "zone.js": "^0.8.5"
+  }
+}

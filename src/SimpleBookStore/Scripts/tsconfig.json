@@ -9,7 +9,7 @@
     "experimentalDecorators": true,
     "lib": [ "es2015", "dom" ],
     "noImplicitAny": true,
-    "outDir": "../wwwroot/main/app",
+    "outDir": "../wwwroot/app",
     "suppressImplicitAnyIndexErrors": true
   },
   "exclude": [

@@ -33,9 +33,9 @@ namespace SimpleBookStore
             {
                 await next();
 
-                if (context.Response.StatusCode == 404 && !Path.HasExtension(context.Request.Path.Value) && context.Request.Path.Value.StartsWith("/main"))
+                if (context.Response.StatusCode == 404 && !Path.HasExtension(context.Request.Path.Value))
                 {
-                    context.Request.Path = "/main/index.html"; // Put your Angular root page here 
+                    context.Request.Path = "/index.html"; // Put your Angular root page here 
                     await next();
                 }
             });

@@ -1,4 +1,5 @@
-﻿/*
+﻿/// <binding BeforeBuild='copy-libs' />
+/*
 This file in the main entry point for defining Gulp tasks and using Gulp plugins.
 Click here to learn more. http://go.microsoft.com/fwlink/?LinkId=518007
 */
@@ -15,58 +16,47 @@ paths.npmSrc = "./node_modules/";
 paths.npmLibs = paths.webroot + "libs/";
 paths.main = paths.webroot + "main/";
 
-gulp.task('copy-libs:angular', function () {
-    return gulp.src([
-        'node_modules/@angular/**/*.js',
-        'node_modules/@angular/**/*.css',
-        'node_modules/@angular/**/*.scss'
+gulp.task('copy-libs', function () {
+    // Angular
+    gulp.src([
+        paths.npmSrc + '@angular/**/*.js',
+        paths.npmSrc + '@angular/**/*.css',
+        paths.npmSrc + '@angular/**/*.scss'
     ]).pipe(gulp.dest(paths.npmLibs + '@angular'));
-});
-
-gulp.task('copy-libs:aim-web-api', function () {
-    return gulp.src([
-        'node_modules/angular-in-memory-web-api/**/*.js'
+    gulp.src([
+        paths.npmSrc + 'angular-in-memory-web-api/**/*.js'
     ]).pipe(gulp.dest(paths.npmLibs + 'angular-in-memory-web-api'));
-});
-
-gulp.task('copy-libs:ng2-validation', function () {
-    return gulp.src([
-        'node_modules/ng2-validation/**/*.js'
+    gulp.src([
+        paths.npmSrc + 'ng2-validation/**/*.js'
     ]).pipe(gulp.dest(paths.npmLibs + 'ng2-validation'));
-});
-
-gulp.task('copy-libs:angular2-cookie', function () {
-    return gulp.src([
-        'node_modules/angular2-cookie/**/*.js'
+    gulp.src([
+        paths.npmSrc + 'angular2-cookie/**/*.js'
     ]).pipe(gulp.dest(paths.npmLibs + 'angular2-cookie'));
-});
 
-gulp.task('copy-libs:bootstrap', function () {
-    return gulp.src([
-        'node_modules/bootstrap/dist/css/bootstrap.min.css'
-    ]).pipe(gulp.dest(paths.main));
-});
-
-gulp.task('copy-libs:core', function () {
-    return gulp.src([
-        'node_modules/core-js/client/*.js'
+    // Angular dependencies
+    gulp.src([
+        paths.npmSrc + 'core-js/client/*.js'
     ]).pipe(gulp.dest(paths.npmLibs + 'core-js'));
-});
-
-gulp.task('copy-libs:reflect', function () {
-    return gulp.src([
-        'node_modules/reflect-metadata/reflect.js'
+    gulp.src([
+        paths.npmSrc + 'reflect-metadata/reflect.js'
     ]).pipe(gulp.dest(paths.npmLibs + 'reflect-metadata'));
-});
-
-gulp.task('copy-libs:systemjs', function () {
-    return gulp.src([
-       'node_modules/systemjs/dist/*.js'
+    gulp.src([
+       paths.npmSrc + 'systemjs/dist/*.js'
     ]).pipe(gulp.dest(paths.npmLibs + 'systemjs'));
-});
-
-gulp.task('copy-libs:zonejs', function () {
-    return gulp.src([
-        'node_modules/zone.js/dist/*.js'
+    gulp.src([
+        paths.npmSrc + 'zone.js/dist/*.js'
     ]).pipe(gulp.dest(paths.npmLibs + 'zone.js'));
+    gulp.src([
+        paths.npmSrc + 'rxjs/bundles/Rx.min.js'
+    ]).pipe(gulp.dest(paths.npmLibs + 'rxjs'));
+
+    // Bootstrap
+    gulp.src([
+        paths.npmSrc + 'bootstrap/dist/css/bootstrap.min.css'
+    ]).pipe(gulp.dest(paths.main));
+
+    // Systemjs
+    gulp.src([
+        'Scripts/systemjs.config.js'
+    ]).pipe(gulp.dest(paths.main));
 });

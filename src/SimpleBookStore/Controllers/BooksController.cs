@@ -18,33 +18,33 @@ namespace SimpleBookStore.Controllers
                 new Book {Id=3, Title="Gulliver's Travels", Author="Jonathan Swift", Genre=BookGenre.Fantasy, Publisher="Benjamin Motte", Year=1726}
         };
 
-        // GET: api/values
+        // GET: api/books
         [HttpGet]
         public IEnumerable<Book> Get()
         {
             return Books;
         }
 
-        // GET api/values/5
+        // GET api/books/5
         [HttpGet("{id}")]
         public Book Get(int id)
         {
             return Books.SingleOrDefault(b => b.Id.Equals(id));
         }
 
-        // POST api/values
+        // POST api/books
         [HttpPost]
         public void Post([FromBody]string value)
         {
         }
 
-        // PUT api/values/5
+        // PUT api/books/5
         [HttpPut("{id}")]
         public void Put(int id, [FromBody]string value)
         {
         }
 
-        // DELETE api/values/5
+        // DELETE api/books/5
         [HttpDelete("{id}")]
         public void Delete(int id)
         {

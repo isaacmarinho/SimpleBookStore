@@ -2,12 +2,9 @@
 **/wwwroot/libs
 
 # Compiled js and css
-**/wwwroot/main/**/*.js
-**/wwwroot/main/**/*.map
-**/wwwroot/webapi/**/*.js
-**/wwwroot/webapi/**/*.map
-**/wwwroot/webapi/**/*.ts
-**/wwwroot/main/**/*.css
+**/wwwroot/**/*.js
+**/wwwroot/**/*.map
+**/wwwroot/**/*.css
 
 # Swagger
 devTools/

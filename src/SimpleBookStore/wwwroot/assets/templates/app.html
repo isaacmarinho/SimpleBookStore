@@ -1,0 +1,66 @@
+﻿<!DOCTYPE html>
+<div class='row'>
+    <book-form></book-form>
+</div>
+<div class='row'>
+    <div class="panel panel-default">
+        <!-- Default panel contents -->
+        <div class='panel-heading'>Books List</div>
+        <div class='panel-body'>
+            <table class='table table-condensed'>
+                <thead>
+                <th>Id</th>
+                <th>Title</th>
+                <th>Author</th>
+                <th>Genre</th>
+                <th>Publisher</th>
+                <th>Year</th>
+                <th></th>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let book of books">
+                        <td> {{book.id}}  </td>
+                        <td>
+                            <input type="text"
+                                   [(ngModel)]="book.title"
+                                   name="bTitle"
+                                   class="form-control" />
+                        </td>
+                        <td>
+                            <input type="text"
+                                   [(ngModel)]="book.author"
+                                   name="bAuthor"
+                                   class="form-control" />
+                        </td>
+                        <td>
+                            <input type="number"
+                                   [(ngModel)]="book.genre"
+                                   name="bGuthor"
+                                   class="form-control" />
+                        </td>
+                        <td>
+                            <input type="text"
+                                   [(ngModel)]="book.publisher"
+                                   name="bPublisher"
+                                   class="form-control" />
+                        </td>
+                        <td>
+                            <input type="number"
+                                   [(ngModel)]="book.year"
+                                   name="bYear"
+                                   class="form-control" />
+                        </td>
+                        <td>
+                            <input type="button"
+                                   value="update" class="btn btn-default"
+                                   (click)="onUpdate(book)" />
+                            <input type="button" value="remove"
+                                   class="btn btn-danger"
+                                   (click)="onDelete(book.id)" />
+                        </td>
+                    </tr>
+                <tbody>
+            </table>
+        </div>
+    </div>
+</div>

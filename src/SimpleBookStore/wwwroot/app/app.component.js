@@ -5,19 +5,56 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
+var book_service_1 = require("./book.service");
 var AppComponent = (function () {
-    function AppComponent() {
-        this.pageTitle = "Hi Angular 4!";
+    function AppComponent(_service) {
+        var _this = this;
+        this._service = _service;
+        this.books = [];
+        this.subscription = _service.RegenerateData$.subscribe(function (mission) {
+            console.log("Good !! ", mission);
+            _this.refresh();
+        });
     }
+    AppComponent.prototype.refresh = function () {
+        var _this = this;
+        this._service.LoadData().then(function (data) {
+            _this.books = data;
+        });
+    };
+    AppComponent.prototype.ngOnInit = function () {
+        this.refresh();
+    };
+    AppComponent.prototype.onUpdate = function (elem) {
+        console.log(elem);
+        this._service.Update(elem).then(function (data) {
+        });
+    };
+    AppComponent.prototype.onDelete = function (elem) {
+        var _this = this;
+        console.log("Delete Form ! ");
+        console.log(elem);
+        this._service.Delete(elem).then(function (data) {
+            _this.refresh();
+        });
+    };
+    AppComponent.prototype.ngOnDestroy = function () {
+        // prevent memory leak when component destroyed
+        this.subscription.unsubscribe();
+    };
     return AppComponent;
 }());
 AppComponent = __decorate([
     core_1.Component({
         selector: 'my-app',
-        template: '<div><h1>{{pageTitle}}</h1></div>'
-    })
+        templateUrl: './assets/templates/app.html'
+    }),
+    __metadata("design:paramtypes", [book_service_1.BookService])
 ], AppComponent);
 exports.AppComponent = AppComponent;
 //# sourceMappingURL=app.component.js.map

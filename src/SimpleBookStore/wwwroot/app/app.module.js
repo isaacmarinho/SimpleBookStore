@@ -11,6 +11,8 @@ var platform_browser_1 = require("@angular/platform-browser");
 var forms_1 = require("@angular/forms");
 var http_1 = require("@angular/http");
 var app_component_1 = require("./app.component");
+var book_service_1 = require("./book.service");
+var bookForm_1 = require("./bookForm");
 var AppModule = (function () {
     function AppModule() {
     }
@@ -19,7 +21,8 @@ var AppModule = (function () {
 AppModule = __decorate([
     core_1.NgModule({
         imports: [platform_browser_1.BrowserModule, forms_1.FormsModule, http_1.HttpModule],
-        declarations: [app_component_1.AppComponent],
+        declarations: [app_component_1.AppComponent, bookForm_1.BookForm],
+        providers: [book_service_1.BookService],
         bootstrap: [app_component_1.AppComponent]
     })
 ], AppModule);

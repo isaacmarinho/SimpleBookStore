@@ -85,7 +85,7 @@ gulp.task('bundle:rxjs', function (finishCb) {
 
 gulp.task('run-once', function (finishCb) {
     // Bundle Rx only if not bundled.
-    fs.stat('./wwwroot/libs/rxjs/Rx.min.js', function (err, stat) {
+    fs.stat(paths.npmLibs + 'rxjs/Rx.min.js', function (err, stat) {
         if (err != null) {
             bundleRxJS(finishCb);
         }
